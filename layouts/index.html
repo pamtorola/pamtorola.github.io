@@ -1,0 +1,110 @@
+{{ define "main" }}
+<!-- ======================= HERO ======================= -->
+<section class="hero">
+  <img class="hero-photo" src="{{ site.Params.photo }}" alt="Portrait of {{ site.Params.author }}" width="160" height="160">
+  <div class="hero-text">
+    <h1>{{ site.Params.author }}</h1>
+    <p class="hero-role">{{ site.Params.role }}, {{ site.Params.institution }}</p>
+    <p class="hero-tagline">{{ site.Params.tagline }}</p>
+    {{ with site.Params.fields }}<p class="hero-fields"><strong>Fields:</strong> {{ . }}</p>{{ end }}
+    <p class="hero-links">
+      {{ with site.Params.cv }}<a class="btn" href="{{ . }}">Curriculum Vitae</a>{{ end }}
+      <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>
+      &middot; <a href="{{ site.Params.orcid }}">ORCID</a>
+    </p>
+  </div>
+</section>
+
+<!-- ======================= BIO ======================= -->
+<section class="bio">
+  {{ .Content }}
+</section>
+
+<!-- ======================= RESEARCH ======================= -->
+<section id="research">
+  <h2>Research</h2>
+
+  <h3 class="group-head group-head-first">Job market paper</h3>
+  {{ range where site.Data.papers "section" "jmp" }}
+  <article class="jmp-card">
+    <h3>{{ .title }}</h3>
+    {{ with .note }}<p class="paper-note">{{ . }}</p>{{ end }}
+  </article>
+  {{ end }}
+
+  <h3 class="group-head">Working papers</h3>
+  <ul class="paper-list">
+    {{ range where site.Data.papers "section" "working" }}
+    <li>
+      {{ if .pdf }}<a href="{{ .pdf }}">{{ .title }}</a>{{ else }}<span class="paper-title">{{ .title }}</span>{{ end }}
+      {{ with .authors }}<span class="paper-authors">({{ . }})</span>{{ end }}
+      {{ with .venue }}<span class="paper-venue">{{ . }}</span>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+
+  <h3 class="group-head">Work in progress</h3>
+  <ul class="paper-list">
+    {{ range where site.Data.papers "section" "progress" }}
+    <li><span class="paper-title">{{ .title }}</span>
+      {{ with .authors }}<span class="paper-authors">({{ . }})</span>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+
+  <h3 class="group-head">Publications</h3>
+  <ul class="paper-list">
+    {{ range where site.Data.papers "section" "publication" }}
+    <li>
+      {{ if .pdf }}<a href="{{ .pdf }}">{{ .title }}</a>{{ else }}<span class="paper-title">{{ .title }}</span>{{ end }}
+      {{ with .authors }}<span class="paper-authors">({{ . }})</span>{{ end }}
+      {{ if .venue }}<span class="paper-venue">{{ .venue }}, {{ .year }}</span>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+</section>
+
+<!-- ======================= DATA ======================= -->
+{{ with site.Data.projects }}
+<section id="data">
+  <h2>Data</h2>
+  <ul class="paper-list">
+    {{ range . }}
+    <li><span class="paper-title">{{ if .link }}<a href="{{ .link }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}</span>
+      <span class="paper-venue">{{ .description }}</span></li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+<!-- ======================= TEACHING ======================= -->
+<section id="teaching">
+  <h2>Teaching</h2>
+  <ul class="plain-list">
+    {{ range site.Data.teaching }}
+    <li><strong>{{ .course }}</strong><br>{{ .role }}, {{ .term }}, {{ .institution }}</li>
+    {{ end }}
+  </ul>
+</section>
+
+<!-- ======================= AWARDS ======================= -->
+<section id="awards">
+  <h2>Fellowships &amp; Awards</h2>
+  <ul class="plain-list">
+    {{ range site.Data.awards }}
+    <li>{{ .name }}, {{ .years }}</li>
+    {{ end }}
+  </ul>
+</section>
+
+<!-- ======================= CONTACT ======================= -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>
+    {{ site.Params.department }}, {{ site.Params.institution }}<br>
+    New Haven, CT 06520-8268<br>
+    <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a> &middot;
+    <a href="{{ site.Params.orcid }}">ORCID</a>
+  </p>
+</section>
+{{ end }}

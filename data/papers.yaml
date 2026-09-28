@@ -1,0 +1,51 @@
+# Papers: the layout groups by `section` (jmp / working / progress / publication)
+# and renders them in that order. Add a `pdf:` field when a PDF is ready
+# (put the file in static/files/ and use "/files/name.pdf").
+
+- title: "From Subsistence to Specialization: The Transformation of Indian Agriculture"
+  section: jmp
+  status: "Job Market Paper"
+  year: 2026
+  note: "Draft available November 2026."
+- title: "From Rural Fields to Urban Kitchens: Structural Change and the Decline of Women's Work in India"
+  section: working
+  authors: "with Michael Peters, Lindsey Uniat, and Fabrizio Zilibotti"
+  status: "Working Paper"
+  year: 2024
+  venue: "EGC Discussion Paper No. 1111, Yale University, December 2024"
+  pdf: "https://elischolar.library.yale.edu/egcenter-discussion-paper-series/1111/"
+- title: "The Gendered Employment Impacts of Smartphones: Evidence from Mexico"
+  section: working
+  authors: "with Gaurav Chiplunkar and Pinelopi Goldberg"
+  status: "Working Paper"
+  year: 2025
+  venue: "Draft, December 2025"
+  # pdf: ""   # TODO: add when a version is public
+- title: "Inheritance, Farm Size, and Agricultural Productivity"
+  section: progress
+  authors: "with Meet Mehta"
+
+- title: "For-Profit Colleges and the Sources of Undermatching"
+  section: progress
+  authors: "with Serena Goldberg and Ryan Haygood"
+
+- title: "Estimating the Effect of Maternal Viral Load on Perinatal and Postnatal HIV Transmission: A Systematic Review and Meta-Analysis"
+  section: publication
+  authors: "with C.M. Dugdale, O. Ufio, J. Giardina, F. Shebl, E. Coskun, E. Pletner, D. Cosar, R. Shapiro, M. Kim, L. Mofenson, and A.L. Ciaranello"
+  status: "Published"
+  year: 2025
+  venue: "The Lancet, 406(10501), 349–357"
+
+- title: "Measuring the US Employment Situation Using Online Panels: The Yale Labor Survey"
+  section: publication
+  authors: "with Christopher L. Foote, Tyler Hounshell, William D. Nordhaus, and Douglas Rivers"
+  status: "Published"
+  year: 2021
+  venue: "Journal of Economic and Social Measurement, 46(1–2), 1–22"
+
+- title: "Novel Microsimulation Model of Tobacco Use Behaviours and Outcomes: Calibration and Validation in a US Population"
+  section: publication
+  authors: "with K.P. Reddy, A.J. Bulteel, D.E. Levy, E.P. Hyle, T. Hou, B. Osher, L. Yu, F.M. Shebl, A.D. Paltiel, and K.A. Freedberg"
+  status: "Published"
+  year: 2020
+  venue: "BMJ Open, 10(5), e032579"

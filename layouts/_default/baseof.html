@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ site.Params.author }}{{ else }}{{ .Title }} — {{ site.Params.author }}{{ end }}</title>
+  <meta name="description" content="{{ site.Params.description }}">
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  {{ $css := resources.Get "css/style.css" | minify }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": {{ site.Params.author | jsonify }},
+    "email": {{ printf "mailto:%s" site.Params.email | jsonify }},
+    "affiliation": {"@type": "Organization", "name": {{ site.Params.institution | jsonify }}},
+    "jobTitle": {{ site.Params.role | jsonify }},
+    "url": {{ site.BaseURL | jsonify }},
+    "sameAs": [{{ site.Params.orcid | jsonify }}]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main">
+      <a class="nav-name" href="/">{{ site.Params.author }}</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="Menu"><span></span></label>
+      <ul class="nav-menu">
+        {{ range site.Menus.main }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+  </header>
+  <main id="main">
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer class="site-footer">
+    <p>&copy; {{ now.Year }} {{ site.Params.author }} &middot; Built with <a href="https://garyking.org/mysite">GaryKing.org/mysite</a></p>
+  </footer>
+</body>
+</html>

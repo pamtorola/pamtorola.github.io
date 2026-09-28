@@ -1,0 +1,35 @@
+baseURL: "https://pamtorola.github.io/"
+languageCode: "en-us"
+title: "Pamela Torola"
+
+params:
+  author: "Pamela Torola"
+  email: "pamela.torola@yale.edu"
+  institution: "Yale University"
+  department: "Department of Economics"
+  role: "PhD Candidate in Economics"
+  description: "Pamela Torola is a PhD candidate in Economics at Yale University studying development, agriculture, and trade. On the 2026–27 job market."
+  orcid: "https://orcid.org/0000-0003-0199-5516"
+  # github: ""        # TODO: add if wanted
+  # scholar: ""       # TODO: add if wanted
+  # linkedin: ""      # TODO: add if wanted
+  fields: "Development Economics, International Trade"
+  # cv: "/files/torola_pamela_CV.pdf"   # re-enable (and the menu item + hero button) when the CV goes public
+  photo: "/images/headshot.jpg"
+
+menu:
+  main:
+    - name: "Research"
+      url: "/#research"
+      weight: 10
+    - name: "Teaching"
+      url: "/#teaching"
+      weight: 20
+    - name: "Contact"
+      url: "/#contact"
+      weight: 40
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

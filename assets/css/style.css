@@ -1,0 +1,144 @@
+/* Pamela Torola — academic site. Single stylesheet, system fonts, no JS. */
+
+:root {
+  --bg: #fdfbf8;
+  --text: #2d2926;
+  --accent: #5c7a8a;
+  --jmp-bg: #f0ebe3;
+  --muted: #6b645e;
+  --maxw: 720px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--accent); color: #fff; padding: 0.5rem 1rem;
+}
+.skip-link:focus { left: 0; z-index: 100; }
+
+/* ---------- Nav ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--bg);
+  border-bottom: 1px solid #e8e2d9;
+}
+.nav {
+  max-width: var(--maxw); margin: 0 auto; padding: 0.6rem 1rem;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap;
+}
+.nav-name { font-weight: 700; color: var(--text); }
+.nav-menu {
+  list-style: none; display: flex; gap: 1.2rem; margin: 0; padding: 0;
+}
+.nav-toggle { display: none; }
+.nav-toggle-label { display: none; cursor: pointer; padding: 0.4rem; }
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block; width: 22px; height: 2px; background: var(--text);
+  position: relative; content: "";
+}
+.nav-toggle-label span::before { position: absolute; top: -7px; }
+.nav-toggle-label span::after { position: absolute; top: 7px; }
+
+@media (max-width: 600px) {
+  .nav-toggle-label { display: block; }
+  .nav-menu {
+    display: none; width: 100%; flex-direction: column; gap: 0.4rem;
+    padding: 0.6rem 0;
+  }
+  .nav-toggle:checked ~ .nav-menu { display: flex; }
+}
+
+/* ---------- Layout ---------- */
+main { max-width: var(--maxw); margin: 0 auto; padding: 0 1rem 3rem; }
+
+section { margin-top: 4rem; }
+section:first-of-type { margin-top: 2.5rem; }
+
+h1 { font-size: 2rem; font-weight: 700; margin: 0 0 0.2rem; }
+h2 {
+  font-size: 1.4rem; font-weight: 600; margin: 0 0 1.5rem;
+  border-bottom: 2px solid var(--jmp-bg); padding-bottom: 0.3rem;
+}
+h3 { font-size: 1.1rem; margin: 0 0 0.5rem; }
+
+/* ---------- Hero ---------- */
+.hero { display: flex; gap: 2rem; align-items: center; }
+.hero-photo {
+  width: 160px; height: 160px; border-radius: 50%; object-fit: cover;
+  flex-shrink: 0; background: var(--jmp-bg);
+}
+.hero-role { color: var(--muted); margin: 0 0 0.6rem; }
+.hero-tagline { margin: 0 0 0.8rem; }
+.hero-fields { margin: 0 0 0.8rem; }
+.hero-links { margin: 0; }
+.btn {
+  display: inline-block; background: var(--accent); color: #fff;
+  padding: 0.35rem 0.9rem; border-radius: 4px; margin-right: 0.8rem;
+}
+.btn:hover { text-decoration: none; opacity: 0.9; }
+
+@media (max-width: 600px) {
+  .hero { flex-direction: column; text-align: center; }
+}
+
+/* ---------- Research ---------- */
+.jmp-card {
+  background: var(--jmp-bg); border-left: 4px solid var(--accent);
+  padding: 1.2rem 1.4rem; margin-bottom: 2rem; border-radius: 0 4px 4px 0;
+}
+.jmp-card h3 { margin: 0.2rem 0 0.4rem; }
+.jmp-card details summary {
+  cursor: pointer; color: var(--accent); font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.badge {
+  display: inline-block; font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent); margin: 0;
+}
+.paper-note { color: var(--muted); font-size: 0.92rem; margin: 0 0 0.5rem; }
+
+.group-head { margin-top: 2rem; color: var(--text); }
+.group-head-first { margin-top: 0; }
+.paper-abstract summary {
+  cursor: pointer; color: var(--accent); font-size: 0.9rem;
+}
+.paper-abstract p { font-size: 0.92rem; margin: 0.3rem 0 0; }
+.paper-list { list-style: none; margin: 0; padding: 0; }
+.paper-list li { margin-bottom: 1rem; }
+.paper-title { font-weight: 600; }
+.paper-authors { color: var(--muted); }
+.paper-venue { display: block; color: var(--muted); font-size: 0.92rem; }
+
+/* ---------- Lists ---------- */
+.plain-list { list-style: none; margin: 0; padding: 0; }
+.plain-list li { margin-bottom: 0.8rem; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid #e8e2d9; margin-top: 3rem;
+  padding: 1.2rem 1rem; text-align: center;
+  color: var(--muted); font-size: 0.85rem;
+}

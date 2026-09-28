@@ -1,0 +1,8 @@
+- name: "Harmonized ARIS-REDS panel (1971–2006)"
+  description: >
+    The first harmonization of all four rounds of the ARIS-REDS rural
+    household surveys (1971, 1981, 1999, 2006; roughly 240 villages in 17
+    Indian states) into a single dataset linking crop production, land
+    allocation, food consumption, and output-market participation at the
+    household level over 35 years.
+  # link: ""   # TODO: add if/when the data build is made public
