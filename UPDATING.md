@@ -13,7 +13,7 @@ them, push to GitHub, and the site rebuilds itself in ~2 minutes.
 | Fellowships & awards | `data/awards.yaml` |
 | Data projects | `data/projects.yaml` |
 | Name, email, tagline, links, menu | `hugo.yaml` |
-| CV PDF | `static/files/torola_pamela_CV.pdf` (replace the file, keep the name) |
+| CV PDF | not on the site right now; see "Held back" below |
 | Headshot | `static/images/headshot.jpg` (160×160 or larger, square-ish) |
 | Colors & styling | `assets/css/style.css` |
 
@@ -24,9 +24,8 @@ them, push to GitHub, and the site rebuilds itself in ~2 minutes.
   `static/files/` and add `pdf: "/files/name.pdf"`.
 - **Mark a paper published:** change its `section:` to `publication` and add
   `venue:` and `year:`.
-- **Update the CV:** overwrite `static/files/torola_pamela_CV.pdf`.
 - **Change the JMP:** the paper with `section: jmp` gets the highlighted card
-  with the abstract shown.
+  under the "Job market paper" heading.
 
 ## Preview locally
 
@@ -36,10 +35,29 @@ hugo server
 
 then open http://localhost:1313.
 
-## Going live (first time)
+## Held back on purpose (Sept 2026)
 
-1. Create a GitHub repo named `USERNAME.github.io` and push this folder.
-2. In the repo: Settings → Pages → Source: "GitHub Actions".
-3. Set `baseURL` in `hugo.yaml` to `https://USERNAME.github.io/`.
-4. Push to `main` — the workflow in `.github/workflows/deploy.yml` builds and
-   deploys automatically.
+The public site deliberately omits things. Each is one small edit to restore:
+
+- **Abstracts.** Stripped out of `data/papers.yaml` and parked in
+  `../Drafts/site_abstracts_held.yaml`. They were removed from the source file,
+  not just the template, because the repo is public and GitHub shows source.
+  Paste the blocks back and re-add the `<details>` block in `layouts/index.html`.
+  Co-authored abstracts must be the official text, verbatim.
+- **CV.** The `cv:` param in `hugo.yaml` is commented out, the menu item is
+  gone, and the hero button is wrapped in `{{ with site.Params.cv }}`. The
+  authoritative CV is the Overleaf project `Torola_CV_JM2026`, not this repo.
+  To put it back: drop the PDF in `static/files/`, uncomment `cv:`, re-add the
+  menu entry.
+- **JMP draft link.** Add `pdf:` to the `jmp` entry in `data/papers.yaml`.
+
+## Publishing a change
+
+The repo is `https://github.com/pamtorola/pamtorola.github.io` (public), Pages
+source is set to "GitHub Actions". Any push to `main` rebuilds
+https://pamtorola.github.io in about two minutes, via
+`.github/workflows/deploy.yml`. Commit and push from GitHub Desktop, or from a
+shell in this folder.
+
+Note: the workflow only runs on push (and manual dispatch from the Actions
+tab). Changing a Pages setting does not by itself trigger a build.
