@@ -14,7 +14,7 @@ params:
   # scholar: ""       # TODO: add if wanted
   # linkedin: ""      # TODO: add if wanted
   fields: "Development Economics, International Trade"
-  # cv: "/files/torola_pamela_CV.pdf"   # re-enable (and the menu item + hero button) when the CV goes public
+  cv: "/cv"
   photo: "/images/headshot.jpg"
 
 menu:
@@ -25,6 +25,9 @@ menu:
     - name: "Teaching"
       url: "/#teaching"
       weight: 20
+    - name: "CV"
+      url: "/cv"
+      weight: 30
     - name: "Contact"
       url: "/#contact"
       weight: 40
