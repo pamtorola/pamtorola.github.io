@@ -51,6 +51,25 @@ The public site deliberately omits things. Each is one small edit to restore:
   menu entry.
 - **JMP draft link.** Add `pdf:` to the `jmp` entry in `data/papers.yaml`.
 
+## Stable links for the CV and the JMP
+
+Hand out these two, never the file path:
+
+- https://pamtorola.github.io/cv
+- https://pamtorola.github.io/jmp
+
+Each is a one-line redirect page in `static/cv/` and `static/jmp/` pointing at
+`/files/torola_pamela_CV.pdf` and `/files/torola_pamela_jmp.pdf`. To update
+either document, overwrite that PDF in `static/files/` (keep the filename) and
+push. The URL people have is unaffected; so is a reorganization later, since
+only the redirect target needs editing.
+
+GitHub Pages caches for about ten minutes, so a fresh upload is not instant.
+
+Caveat worth knowing: this repo is public and git keeps every version. A draft
+pushed today stays retrievable from the history even after it is replaced.
+Only push a version you are content to have permanently archived.
+
 ## Publishing a change
 
 The repo is `https://github.com/pamtorola/pamtorola.github.io` (public), Pages
