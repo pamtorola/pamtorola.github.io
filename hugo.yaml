@@ -14,7 +14,7 @@ params:
   # scholar: ""       # TODO: add if wanted
   # linkedin: ""      # TODO: add if wanted
   fields: "Development Economics, International Trade"
-  cv: "/files/torola_pamela_CV.pdf"
+  cv: "/files/torola_pamela_cv.pdf"
   photo: "/images/headshot.jpg"
 
 menu:
@@ -26,7 +26,7 @@ menu:
       url: "/#teaching"
       weight: 20
     - name: "CV"
-      url: "/files/torola_pamela_CV.pdf"
+      url: "/files/torola_pamela_cv.pdf"
       weight: 30
     - name: "Contact"
       url: "/#contact"
