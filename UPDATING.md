@@ -59,7 +59,7 @@ Hand out these two, never the file path:
 - https://pamtorola.github.io/jmp
 
 Each is a one-line redirect page in `static/cv/` and `static/jmp/` pointing at
-`/files/torola_pamela_cv.pdf` and `/files/torola_pamela_jmp.pdf`. To update
+`/files/torola_pamela_CV.pdf` and `/files/torola_pamela_jmp.pdf`. To update
 either document, overwrite that PDF in `static/files/` (keep the filename) and
 push. The URL people have is unaffected; so is a reorganization later, since
 only the redirect target needs editing.
