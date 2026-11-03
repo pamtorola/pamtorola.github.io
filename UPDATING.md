@@ -53,22 +53,37 @@ The public site deliberately omits things. Each is one small edit to restore:
 
 ## Stable links for the CV and the JMP
 
-Hand out these two, never the file path:
+Hand out these, never a file path:
 
-- https://pamtorola.github.io/cv
-- https://pamtorola.github.io/jmp
+- CV: https://pamtorola.github.io/files/torola_pamela_CV.pdf
+- JMP: https://pamtorola.github.io/jmp
 
-Each is a one-line redirect page in `static/cv/` and `static/jmp/` pointing at
-`/files/torola_pamela_CV.pdf` and `/files/torola_pamela_jmp.pdf`. To update
-either document, overwrite that PDF in `static/files/` (keep the filename) and
-push. The URL people have is unaffected; so is a reorganization later, since
-only the redirect target needs editing.
+The two are hosted differently, on purpose.
 
-GitHub Pages caches for about ten minutes, so a fresh upload is not instant.
+The **CV** is a real file in `static/files/`. The Yale placement page links it
+directly, so the capitalized filename is fixed and must not change. `hugo.yaml`
+sets `disablePathToLower: true` so Hugo stops lowercasing the menu URL; without
+it the nav link 404s. To update: overwrite `static/files/torola_pamela_CV.pdf`
+and push.
 
-Caveat worth knowing: this repo is public and git keeps every version. A draft
-pushed today stays retrievable from the history even after it is replaced.
-Only push a version you are content to have permanently archived.
+The **JMP** is not in this repo at all. `static/jmp/index.html` redirects to a
+Dropbox sharing link. To update the paper, overwrite the PDF in Dropbox at the
+same path with the same filename; the sharing link keeps working and serves the
+new version. Deleting and re-uploading mints a new link and breaks everything,
+so always overwrite in place. Nothing needs to be pushed here.
+
+The redirect target carries `raw=1` rather than Dropbox's `dl=0`, so the PDF
+opens instead of landing on a Dropbox preview page, and no `st=` parameter,
+which is a short-lived token. `static/robots.txt` keeps search engines off
+`/jmp/`, and the redirect page carries a `noindex` tag.
+
+GitHub Pages caches for about ten minutes, so a change pushed here is not
+instant. A Dropbox overwrite is.
+
+Caveat worth knowing: this repo is public and git keeps every version, so each
+CV you push stays retrievable from the history after it is replaced. That is
+why the JMP lives in Dropbox — drafts leave no public trail. Only push a CV you
+are content to have permanently archived.
 
 ## Publishing a change
 
