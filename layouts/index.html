@@ -5,7 +5,7 @@
   <div class="hero-text">
     <h1>{{ site.Params.author }}</h1>
     <p class="hero-role">{{ site.Params.role }}, {{ site.Params.institution }}</p>
-    <p class="hero-tagline">{{ site.Params.tagline }}</p>
+    {{ with site.Params.tagline }}<p class="hero-tagline">{{ . }}</p>{{ end }}
     {{ with site.Params.fields }}<p class="hero-fields"><strong>Fields:</strong> {{ . }}</p>{{ end }}
     <p class="hero-links">
       {{ with site.Params.cv }}<a class="btn" href="{{ . }}">Curriculum Vitae</a>{{ end }}
